@@ -51,7 +51,12 @@ type FileOutput struct {
 }
 
 func (o FileOutput) WriteLine(line string) error {
-
+	if o.buffer == nil {
+		o.buffer = bytes.NewBufferString(line)
+	} else {
+		o.buffer.WriteString(line)
+	}
+	return nil
 }
 
 type Processor interface {
