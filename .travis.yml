@@ -3,6 +3,7 @@ language: go
 go:
   - 1.5
 
-install: true
+install:
+  - go get gopkg.in/alecthomas/kingpin.v2
 
 script: go build
